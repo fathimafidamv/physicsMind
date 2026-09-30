@@ -13,6 +13,8 @@ Difficulty_levels = {
 
 def generate_problem(difficulty: int = 1) ->Problem:
     config=Difficulty_levels.get(difficulty)
+    if config is None:
+        raise ValueError(f"Unknown difficulty : {difficulty}")
     angle=random.choice(config.angle)
     speed=random.choice(config.speed)
     params=ProjectileParams(speed=speed,angle=angle)
@@ -31,3 +33,8 @@ def generate_problem(difficulty: int = 1) ->Problem:
 if __name__=="__main__":
     print(generate_problem(1))
     print(generate_problem(2))
+
+
+
+
+
