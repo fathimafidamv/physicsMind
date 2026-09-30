@@ -18,6 +18,12 @@ class Problem(BaseModel):
     question: str
     solution: ProjectileSolution
 
+class  ProblemPublic(BaseModel):
+    id: int
+    topic: str
+    params: ProjectileParams
+    question: str    
+
 class AnswerChecker(BaseModel):
     problem_id: int
     quantity: str     # time_of_flight , max_height , range
