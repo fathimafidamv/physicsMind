@@ -22,3 +22,7 @@ class AnswerChecker(BaseModel):
     problem_id: int
     quantity: str     # time_of_flight , max_height , range
     value: float
+
+class DifficultyConfig(BaseModel):
+    angle: list[int]
+    speed: list[int]
