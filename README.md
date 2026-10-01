@@ -62,7 +62,7 @@ From the project root:
 python -m uvicorn app.main:app --reload
 ```
 
-Open http://127.0.0.1:8000/docs for the interactive API docs.
+Open https://physicsmind.onrender.com/docs for the interactive API docs.
 
 ### Endpoints
 
@@ -113,6 +113,10 @@ python -m pytest -v
 ## Roadmap
 
 The next phase adds an LLM layer using Groq. The LLM turns verified numbers into natural word problems, gives graduated hints, and diagnoses likely mistakes. It never computes answers: every number comes from the tested Python solver.
+
+**Live API:** https://physicsmind.onrender.com/docs
+
+The free server sleeps when idle, so the first request can take up to a minute.
 
 ## Author
 

@@ -3,3 +3,5 @@ uvicorn
 sympy
 pint
 pytest
+streamlit
+requests

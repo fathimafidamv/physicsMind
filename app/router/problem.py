@@ -24,8 +24,8 @@ def get_problem(difficulty: int =1):
 
 
 @router.post("/check")
-def answer(submission:AnswerChecker , problem_id: int):
-    problem = PROBLEMS.get(problem_id)
+def answer(submission:AnswerChecker):
+    problem = PROBLEMS.get(submission.problem_id)
     if problem is None:
         raise HTTPException(
             status_code=400,
