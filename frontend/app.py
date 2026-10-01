@@ -16,7 +16,7 @@ def fetch_problem(difficulty: int) -> dict:
         st.error(f"Error fetching problem: {e}")
         return None
 
-def submit_answer(problem_id: int, quantity: str, value: float) -> dict:
+def submit_answer(problem_id: int, quantity: str, value: float) -> bool | None:
     try:
         response = requests.post(f"{API_URL}/check",
                             json = {
@@ -30,7 +30,7 @@ def submit_answer(problem_id: int, quantity: str, value: float) -> dict:
             return None
                      
         response.raise_for_status()
-        return response.json()
+        return response.json()["correct"]
     except requests.exceptions.RequestException as e:
         st.error(f"Error submitting answer: {e}")
         return None
@@ -53,6 +53,7 @@ if problem:
 
     if st.button("Check"):
         result = submit_answer(problem["id"],quantity,value)
+        st.write("Answer:" , result)
         if result is True:
             st.success("Correct answer!")
         elif result is False:
